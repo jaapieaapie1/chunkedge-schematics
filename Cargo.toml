@@ -1,0 +1,23 @@
+[package]
+name = "chunkedge-schematics"
+version = "0.1.0"
+edition = "2024"
+description = "Load popular Minecraft schematic file formats into a ChunkEdge world."
+
+[lib]
+name = "chunkedge_schematics"
+path = "src/lib.rs"
+
+[dependencies]
+# The full ChunkEdge umbrella. Re-exports the world model (`chunkedge::layer`,
+# `chunkedge::block`, …) and NBT (`chunkedge::nbt`, with the `binary` feature
+# pulled in transitively via chunkedge_protocol).
+chunkedge = { git = "https://github.com/ChunkEdge/ChunkEdge", branch = "main" }
+flate2 = "1"
+thiserror = "2"
+
+[features]
+default = ["sponge", "litematica", "structure"]
+sponge = []
+litematica = []
+structure = []
