@@ -46,7 +46,7 @@ fn main() {
     println!("non-air blocks: {non_air}");
 
     let mut top: Vec<(String, u64)> = counts.into_iter().collect();
-    top.sort_by(|a, b| b.1.cmp(&a.1));
+    top.sort_by_key(|b| std::cmp::Reverse(b.1));
     println!("most common:");
     for (name, count) in top.into_iter().take(10) {
         println!("  {count:>8}  {name}");
